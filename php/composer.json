@@ -1,0 +1,22 @@
+{
+    "name": "greyhoundapi/sdk",
+    "description": "Official PHP client for the GreyhoundAPI — greyhound racing data for Great Britain and Australia.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://greyhoundapi.com",
+    "keywords": ["greyhound", "greyhound-racing", "racing", "api", "sdk", "client", "betfair", "sports-data", "odds"],
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "GreyhoundApi\\": "src/"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/greyhoundapi/greyhoundapi-php/issues",
+        "source": "https://github.com/greyhoundapi/greyhoundapi-php"
+    }
+}
