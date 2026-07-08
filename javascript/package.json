@@ -1,0 +1,48 @@
+{
+  "name": "@greyhoundapi/sdk",
+  "version": "1.0.0",
+  "description": "Official JavaScript / TypeScript client for the GreyhoundAPI — greyhound racing data for Great Britain and Australia.",
+  "type": "module",
+  "main": "index.mjs",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  },
+  "files": [
+    "index.mjs",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "greyhound",
+    "greyhound-racing",
+    "racing",
+    "api",
+    "sdk",
+    "client",
+    "betfair",
+    "sports-data",
+    "odds",
+    "gb",
+    "au"
+  ],
+  "homepage": "https://greyhoundapi.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greyhoundapi/greyhoundapi-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/greyhoundapi/greyhoundapi-js/issues"
+  },
+  "author": "GreyhoundAPI",
+  "license": "MIT"
+}
