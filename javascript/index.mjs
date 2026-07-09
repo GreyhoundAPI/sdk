@@ -118,11 +118,12 @@ export class GreyhoundAPI {
     const timer = setTimeout(() => ctrl.abort(), this.timeout);
     let res;
     try {
-      res = await this._fetch(url, {
-        method,
-        headers: { "X-API-Key": this.apiKey, Accept: "application/json" },
-        signal: ctrl.signal,
-      });
+      const headers = { "X-API-Key": this.apiKey, Accept: "application/json" };
+      // Browsers forbid setting User-Agent (and send their own); only set it on Node.
+      if (typeof process !== "undefined" && process.versions && process.versions.node) {
+        headers["User-Agent"] = "greyhoundapi-js/1.0.0";
+      }
+      res = await this._fetch(url, { method, headers, signal: ctrl.signal });
     } catch (e) {
       clearTimeout(timer);
       const msg = e && e.name === "AbortError" ? `Request timed out after ${this.timeout}ms` : `Request failed: ${e && e.message}`;

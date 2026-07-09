@@ -65,6 +65,7 @@ class GreyhoundAPI:
         req = urllib.request.Request(url, method=method)
         req.add_header("X-API-Key", self.api_key)
         req.add_header("Accept", "application/json")
+        req.add_header("User-Agent", "greyhoundapi-python/" + __version__)
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 raw = resp.read().decode("utf-8")
@@ -78,8 +79,12 @@ class GreyhoundAPI:
                 pass
             err = body.get("error", {}) if isinstance(body, dict) else {}
             meta = body.get("meta", {}) if isinstance(body, dict) else {}
+            message = err.get("message")
+            if not message:
+                snippet = " ".join(raw.split())[:200]
+                message = "HTTP {}{}".format(exc.code, (": " + snippet) if snippet else "")
             raise GreyhoundAPIError(
-                err.get("message") or "HTTP {}".format(exc.code),
+                message,
                 status=exc.code,
                 code=err.get("code"),
                 request_id=meta.get("request_id"),

@@ -116,6 +116,7 @@ class Client
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CONNECTTIMEOUT => 10,
             CURLOPT_TIMEOUT        => (int) ceil($this->timeout),
+            CURLOPT_USERAGENT      => 'greyhoundapi-php/1.0.0',
             CURLOPT_HTTPHEADER     => ['X-API-Key: ' . $this->apiKey, 'Accept: application/json'],
         ]);
         $body   = curl_exec($ch);

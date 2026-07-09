@@ -33,7 +33,20 @@ Every call returns the standard envelope as a dict:
 {"meta": {"request_id": "req_…", "data_as_of": "2026-07-08T13:05:12Z"}, "data": {...}}
 ```
 
-Get a free key at **[greyhoundapi.com](https://greyhoundapi.com)** — no card required.
+## Getting an API key
+
+The API is authenticated with a key sent in the `X-API-Key` header. To get one:
+
+1. Go to **[greyhoundapi.com](https://greyhoundapi.com)** and click **Get a free key** (top-right).
+2. **Sign in** to create your account.
+3. Open **Account → API keys** and click **Create key**.
+4. Copy the key — **it's shown only once**. Sandbox keys start `gapi_test_`; live keys start `gapi_live_`.
+
+**Free sandbox key** — no card required: the race & track endpoints over a rolling 7-day window, 500 requests/day, one active key. Ideal for building and evaluating.
+
+**Live plan** ($99/month) — every endpoint, the full historical archive, live-day data and the WebSocket results stream, 250,000 requests/month, and up to 5 active keys. See **[pricing](https://greyhoundapi.com/pricing)**.
+
+**Keep your key secret.** Load it from an environment variable (e.g. `GREYHOUNDAPI_KEY`) rather than committing it.
 
 ## Authentication
 

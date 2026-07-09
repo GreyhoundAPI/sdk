@@ -99,6 +99,7 @@ func (c *Client) Do(method, path string, params Params) (*Envelope, error) {
 	}
 	req.Header.Set("X-API-Key", c.APIKey)
 	req.Header.Set("Accept", "application/json")
+	req.Header.Set("User-Agent", "greyhoundapi-go/1.0.0")
 
 	httpClient := c.HTTP
 	if httpClient == nil {
